@@ -23,6 +23,7 @@ export SUPERSET_CONFIG_PATH=<desired superset configuration directory>/superset_
  
 Start superset in production mode:
 
+```console
 gunicorn \
 
       -w 10 \
@@ -40,4 +41,4 @@ gunicorn \
       --statsd-host localhost:8088 \
       
       "superset.app:create_app()"
-
+```
