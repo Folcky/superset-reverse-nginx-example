@@ -13,3 +13,22 @@ Still it was not crystal clear how to put all elements together. To save some ti
 
  * docker-compose up -d --build
  * docker-compose down -v
+
+
+## How to run standalone
+Save superset_config.py to desired superset configuration directory
+
+Define path your custom configuration superset_config.py file in bash profile or .bashrc
+export SUPERSET_CONFIG_PATH=<desired superset configuration directory>/superset_config.py
+ 
+Start superset in production mode:
+gunicorn \
+      -w 10 \
+      -k gevent \
+      --timeout 120 \
+      -b  127.0.0.1:6666 \
+      --limit-request-line 0 \
+      --limit-request-field_size 0 \
+      --statsd-host localhost:8088 \
+      "superset.app:create_app()"
+
