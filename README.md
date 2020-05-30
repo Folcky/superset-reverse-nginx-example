@@ -23,13 +23,13 @@ export SUPERSET_CONFIG_PATH=<desired superset configuration directory>/superset_
  
 Start superset in production mode:
 
-gunicorn \
-      -w 10 \
-      -k gevent \
-      --timeout 120 \
-      -b  127.0.0.1:6666 \
-      --limit-request-line 0 \
-      --limit-request-field_size 0 \
-      --statsd-host localhost:8088 \
+gunicorn \\
+      -w 10 \\
+      -k gevent \\
+      --timeout 120 \\
+      -b  127.0.0.1:6666 \\
+      --limit-request-line 0 \\
+      --limit-request-field_size 0 \\
+      --statsd-host localhost:8088 \\
       "superset.app:create_app()"
 
