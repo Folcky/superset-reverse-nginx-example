@@ -22,6 +22,7 @@ Define path your custom configuration superset_config.py file in bash profile or
 export SUPERSET_CONFIG_PATH=<desired superset configuration directory>/superset_config.py
  
 Start superset in production mode:
+
 gunicorn \
       -w 10 \
       -k gevent \
